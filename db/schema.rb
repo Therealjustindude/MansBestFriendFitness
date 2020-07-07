@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_202829) do
+ActiveRecord::Schema.define(version: 2020_07_07_211326) do
+
+  create_table "diet_entries", force: :cascade do |t|
+    t.string "food"
+    t.string "snacks"
+    t.string "water"
+    t.integer "calories"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "dogs", force: :cascade do |t|
     t.string "name"
@@ -21,6 +30,26 @@ ActiveRecord::Schema.define(version: 2020_07_07_202829) do
     t.boolean "intact"
     t.date "birthday"
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "exercise_entries", force: :cascade do |t|
+    t.string "name"
+    t.time "duration"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "journal_entries", force: :cascade do |t|
+    t.string "title"
+    t.string "entry"
+    t.date "date"
+    t.integer "dog_id"
+    t.integer "user_id"
+    t.integer "diet_entry_id"
+    t.integer "exercise_entry_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
