@@ -7,14 +7,27 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-
   <body>
+<div class="sidenav">
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+</div>
 
-  <p class="notice"><%= notice %></p>
+<div class="content">
+  <p class="notice"><%= notice %></p> 
   <p class="alert"><%= alert %></p>
 
-    <%= yield %>
+  <h2>CSS Template</h2>
+  <p>A full-height, fixed sidenav and content.</p>
+   <%= yield %>
+</div>
+  
+
+   
     
+  
   </body>
 </html>
