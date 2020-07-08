@@ -11,17 +11,20 @@
   </head>
   <body>
 <div class="sidenav">
-  <a href="#">Link</a>
-  <a href="#">Link</a>
-  <a href="#">Link</a>
+   <%= link_to "Home", root_path, class:"sidenav-link"%>
+  <% if user_signed_in?%>
+    <%= link_to "Sign out", destroy_account_session_path, method: :delete, class:"sidenav-link"%>
+  <%else%>
+    <%= link_to "Sign up", new_account_registration_path, class:"sidenav-link"%>
+    <%= link_to "Sign in", new_account_session_path, class:"sidenav-link"%>
+  <%end%>
 </div>
 
 <div class="content">
   <p class="notice"><%= notice %></p> 
   <p class="alert"><%= alert %></p>
 
-  <h2>CSS Template</h2>
-  <p>A full-height, fixed sidenav and content.</p>
+ 
    <%= yield %>
 </div>
   
