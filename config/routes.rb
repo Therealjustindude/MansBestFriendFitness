@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :dogs
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
   root "site#index"
+  
+  devise_for :users, path: "accounts"
+
+  resources :users, only: [:index, :show] do
+    resources :dogs
+  end
+  
+  
 end
