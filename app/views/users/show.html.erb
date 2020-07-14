@@ -1,0 +1,22 @@
+
+<div class="users-show-journals">
+    <h1><%= @user.full_name%></h1>
+    <fieldset>
+    <legend>Journal Entries</legend>s
+    <%@user.journal_entries.each do |entry|%>
+        <h2><%=entry.title%></h2>
+        <p><%=entry.entry%></p>
+    <%end%>
+    </fieldset>
+</div>
+
+
+<div class="users-show-dogs">
+    <fieldset>
+    <legend><%=@user.first_name%>'s Dogs</legend>
+    
+    <%@user.dogs.each do |dog|%>
+        <%=dog.name%>
+    <%end%>
+    <fieldset>
+</div>
