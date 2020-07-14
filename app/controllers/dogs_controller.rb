@@ -1,21 +1,26 @@
 class DogsController < ApplicationController
     before_action :authenticate_user!
-    def index
-        @dogs = Dog.all
-    end
 
     def show
-        @dog = Dog.find_by(id: params[:id])
+        if params[:user_id]
+            @user = Artist.find_by(id: params[:user_id])
+            @dog = @user.dogs.find_by(id: params[:id])
+            if @user.nil?
+              redirect_to user_dogs_path(@user), alert: "Dog not found"
+            end
+        else
+            @dog = Dog.find(params[:id])
+        end
     end
 
-    def new
-        @dog= Dog.new
-    end
+    # def new
+    #     @dog= Dog.new
+    # end
 
-    def create
-        dog = Dog.create(dog_params)
-        redirect_to dog
-    end
+    # def create
+    #     dog = Dog.create(dog_params)
+    #     redirect_to dog
+    # end
 
     # def edit
 
