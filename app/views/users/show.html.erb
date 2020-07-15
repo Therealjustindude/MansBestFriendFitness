@@ -16,6 +16,7 @@
     <legend><%=@user.first_name%>'s Dogs</legend>
     
     <%@user.dogs.each do |dog|%>
+    #create link to dog show, edit and delete
         <%=dog.name%>
     <%end%>
     <fieldset>
