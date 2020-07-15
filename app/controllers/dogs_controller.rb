@@ -13,14 +13,19 @@ class DogsController < ApplicationController
         end
     end
 
-    # def new
-    #     @dog= Dog.new
-    # end
+    def new
+        @user = current_user
+        @dog = Dog.new
+    end
 
-    # def create
-    #     dog = Dog.create(dog_params)
-    #     redirect_to dog
-    # end
+    def create
+        @dog = current_user.dogs.build(dog_params)
+            if @dog.save
+                redirect_to user_path(current_user)
+            else
+                render :new
+            end 
+    end
 
     # def edit
 
@@ -36,7 +41,7 @@ class DogsController < ApplicationController
 
     private
 
-    def dog_parmas
+    def dog_params
         params.require(:dog).permit!
     end
 
