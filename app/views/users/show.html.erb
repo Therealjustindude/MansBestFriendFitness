@@ -2,7 +2,7 @@
 <div class="users-show-journals">
     <h1><%= @user.full_name%></h1>
     <fieldset>
-    <legend>Journal Entries</legend>s
+    <legend>Journal Entries</legend>
     <%@user.journal_entries.each do |entry|%>
         <h2><%=entry.title%></h2>
         <p><%=entry.entry%></p>
@@ -16,8 +16,8 @@
     <legend><%=@user.first_name%>'s Dogs</legend>
     
     <%@user.dogs.each do |dog|%>
-    #create link to dog show, edit and delete
-        <%=dog.name%>
+    <%# #create link to dog show, edit and delete %>
+        <%=link_to dog.name.capitalize, user_dog_path(dog)%><br>
     <%end%>
     <fieldset>
 </div>

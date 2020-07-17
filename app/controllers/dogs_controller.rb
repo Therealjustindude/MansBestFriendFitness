@@ -3,7 +3,7 @@ class DogsController < ApplicationController
 
     def show
         if params[:user_id]
-            @user = Artist.find_by(id: params[:user_id])
+            @user = User.find_by(id: params[:user_id])
             @dog = @user.dogs.find_by(id: params[:id])
             if @user.nil?
               redirect_to user_dogs_path(@user), alert: "Dog not found"
@@ -27,17 +27,22 @@ class DogsController < ApplicationController
             end 
     end
 
-    # def edit
+    def edit
+        @user = current_user
+        @dog = current_user.dogs.find_by(id: params[:id])
+    end
 
-    # end
+    def update
+        dog = current_user.dogs.where(id: params[:id])
+        dog.update(dog_params)
+        redirect_to user_path(current_user)
+    end
 
-    # def update
-
-    # end
-
-    # def destroy
-
-    # end
+    def destroy
+        dog = current_user.dogs.where(id: params[:id])
+        dog.destroy
+        redirect_to user_path(current_user)
+    end
 
     private
 

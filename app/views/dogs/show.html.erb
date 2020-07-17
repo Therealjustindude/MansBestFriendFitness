@@ -1,0 +1,14 @@
+<div class="dog-show">
+    <h1><%=@dog.name.capitalize%>'s Information</h1>
+    
+        Breed: <%=@dog.breed%><br>
+        Age: <%=@dog.age%> years<br>
+        Weight: <%=@dog.weight%>lbs<br>
+        Gender: <%=@dog.gender%><br>
+        Spayed/Nuetered: <%=@dog.intact%><br>
+        Birthday: <%=@dog.birthday%><br>
+
+    <%=link_to "Edit", edit_user_dog_path(@dog)%>
+    <%# need delete link %>
+    
+</div>
