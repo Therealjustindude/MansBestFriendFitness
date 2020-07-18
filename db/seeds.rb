@@ -8,6 +8,7 @@
 j = User.create(first_name: "Justin", last_name: "Davies", email: "justin@gmail.com", password: "password")
 
 j.dogs.create(name:"trip",breed:"pitbull",age:"7",gender:"male",weight:"60",intact:"true",birthday:"12/04/2014")
+j.dogs.create(name:"Test",breed:"pitbull",age:"1",gender:"female",weight:"20",intact:"true",birthday:"12/04/2019")
 
 JournalEntry.create(title: "Test", entry:"This is a test entry", date:"07/14/2020",dog_id: 1, user_id: 1)
 
