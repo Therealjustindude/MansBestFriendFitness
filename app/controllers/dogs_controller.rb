@@ -1,4 +1,5 @@
 class DogsController < ApplicationController
+    load_and_authorize_resource
     before_action :authenticate_user!
 
     def show
@@ -14,7 +15,6 @@ class DogsController < ApplicationController
     end
 
     def new
-        @user = current_user
         @dog = Dog.new
     end
 
@@ -28,18 +28,17 @@ class DogsController < ApplicationController
     end
 
     def edit
-        @user = current_user
         @dog = current_user.dogs.find_by(id: params[:id])
     end
 
     def update
-        dog = current_user.dogs.where(id: params[:id])
+        dog = current_user.dogs.find_by(id: params[:id])
         dog.update(dog_params)
         redirect_to user_path(current_user)
     end
 
     def destroy
-        dog = current_user.dogs.where(id: params[:id])
+        dog = current_user.dogs.find_by(id: params[:id])
         dog.destroy
         redirect_to user_path(current_user)
     end
@@ -47,7 +46,7 @@ class DogsController < ApplicationController
     private
 
     def dog_params
-        params.require(:dog).permit!
+        params.require(:dog).permit(:name, :breed, :age, :gender, :weight, :intact, :birthday, journal_entry_attributes[:title, :entry,:date], diet_entry_attributes[:food, :snacks, :water, :calories], exercise_entry_attributes[:name, :duration, :description])
     end
 
 end
