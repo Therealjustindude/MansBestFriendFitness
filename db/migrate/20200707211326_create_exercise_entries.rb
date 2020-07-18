@@ -4,7 +4,7 @@ class CreateExerciseEntries < ActiveRecord::Migration[6.0]
       t.string :name
       t.time :duration
       t.string :description
-
+      t.integer :journal_entry_id
       t.timestamps
     end
   end
