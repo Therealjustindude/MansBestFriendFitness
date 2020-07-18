@@ -1,4 +1,4 @@
 class ExerciseEntry < ApplicationRecord
-    has_many :journal_entries
+    belongs_to :journal_entries, optional: true
     has_many :dogs, through: :journal_entries
 end
