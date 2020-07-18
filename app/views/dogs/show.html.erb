@@ -8,7 +8,13 @@
         Spayed/Nuetered: <%=@dog.intact%><br>
         Birthday: <%=@dog.birthday%><br>
 
-    <%=link_to "Edit", edit_user_dog_path(@dog)%>
-    <%# need delete link %>
+    <%if can? :update, @dog%>
+     <%=link_to "Edit", edit_user_dog_path(@user, @dog)%>
+    <%end%>
+    |
+    <%if can? :destroy, @dog%>
+     <%=link_to "Delete ", user_dog_path(@user, @dog), method: 'delete'%>
+    <%end%>
+    
     
 </div>
