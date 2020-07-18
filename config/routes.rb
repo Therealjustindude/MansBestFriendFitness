@@ -5,8 +5,16 @@ Rails.application.routes.draw do
   devise_for :users,controllers: { omniauth_callbacks: 'omniauth_callbacks' }, path: "accounts"
 
   resources :users, only: [:index, :show] do
-    resources :dogs
+    resources :dogs do
+      resources :journal_entries
+      resources :exercise_entries
+      resources :diet_entries
+    end
+    resources :journal_entries
+    resources :exercise_entries
+    resources :diet_entries
   end
+ 
 
   
   
