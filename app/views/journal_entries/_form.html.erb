@@ -1,0 +1,10 @@
+<%=form_for [current_user, @journal_entry] do |f|%>
+    <%=f.label :title%>
+    <%=f.text_field :title%>
+    <%=f.label :entry%>
+    <%=f.text_area :entry%>
+    <%=f.label :date%>
+    <%=f.date_field :date%>
+    
+    <%=f.submit%>
+<%end%>
