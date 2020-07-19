@@ -5,6 +5,7 @@ class JournalEntriesController < ApplicationController
     def show
         if params[:user_id]
             @user = User.find_by(id: params[:user_id])
+            @dog = Dog.find_by(id: params[:dog_id])
             @journal_entry = @user.journal_entries.find_by(id: params[:id])
             if @user.nil?
               redirect_to user_journal_entries(@user), alert: "Journal entry not found"
@@ -46,6 +47,6 @@ class JournalEntriesController < ApplicationController
     private
 
     def journal_entry_params
-        params.require(:journal_entry).permit!
+        params.require(:journal_entry).permit(:title, :entry,:date, diet_entries: [:food, :snacks, :water, :calories], exercise_entries: [:name, :duration, :description])
     end
 end
