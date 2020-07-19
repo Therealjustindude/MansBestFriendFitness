@@ -10,9 +10,6 @@ Rails.application.routes.draw do
       resources :exercise_entries
       resources :diet_entries
     end
-    resources :journal_entries
-    resources :exercise_entries
-    resources :diet_entries
   end
  
 
