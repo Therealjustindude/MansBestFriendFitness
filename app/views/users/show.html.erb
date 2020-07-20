@@ -3,9 +3,13 @@
     <h1><%= @user.full_name%></h1>
     <fieldset>
     <legend>Journal Entries</legend>
+    
     <%@user.journal_entries.each do |entry|%>
         <h2><%=entry.title%></h2>
         <p><%=entry.entry%></p>
+       
+        <%if can? :update, entry%><%=link_to "Edit Journal Entry", edit_user_dog_journal_entry_path(@user, entry.dog, entry)%><%end%>| 
+        <%if can? :destroy, entry%><%=link_to "Delete ", user_dog_journal_entry_path(@user, entry.dog, entry), method: 'delete'%><%end%><br>
     <%end%>
     </fieldset>
 </div>
@@ -14,13 +18,14 @@
 <div class="users-show-dogs">
     <fieldset>
     <legend><%=@user.first_name%>'s Dogs</legend>
-    <%if can? :create, @dog%><%=link_to "Add new dog", new_user_dog_path(@user)%><%end%><br>
     <%@user.dogs.each do |dog|%>
-    <%# #create link to dog show, edit and delete %>
         <%=link_to dog.name.capitalize, user_dog_path(@user, dog)%>| 
+
         <%if can? :update, dog%><%=link_to "Edit", edit_user_dog_path(@user, dog)%><%end%>|
-        <%if can? :destroy, dog%><%=link_to "Delete ", user_dog_path(@user, dog), method: 'delete'%><%end%><br>
-        <%if can? :create, dog%><%=button_to "Create Journal Entry for #{dog.name.capitalize}", new_user_dog_journal_entry_path(@user, dog)%><%end%><br>
+
+        <%if can? :destroy, dog%><%=link_to "Delete ", user_dog_path(@user, dog), method: 'delete'%><%end%><br>|
+
+        <%if can? :create, dog%><%=link_to "Create Journal Entry for #{dog.name.capitalize}", new_user_dog_journal_entry_path(@user, dog)%><%end%><br>
 
     <%end%>
     </fieldset>
