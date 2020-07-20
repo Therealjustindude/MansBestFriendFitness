@@ -16,11 +16,16 @@ class JournalEntriesController < ApplicationController
     end
 
     def new
+        @user = User.find_by(id: params[:user_id])
+        @user_dog = @user.dogs.find_by(id: params[:dog_id])
         @journal_entry = JournalEntry.new
     end
 
     def create
-        @journal_entry = current_user.journal_entries.build(journal_entry_params)
+        @user = User.find_by(id: params[:user_id])
+        @user_dog = @user.dogs.find_by(id: params[:dog_id])
+        @journal_entry = @user_dog.journal_entries.build(journal_entry_params)
+        @journal_entry.user = current_user
             if @journal_entry.save
                 redirect_to user_path(current_user)
             else
@@ -29,6 +34,8 @@ class JournalEntriesController < ApplicationController
     end
 
     def edit
+        @user = User.find_by(id: params[:user_id])
+        @user_dog = @user.dogs.find_by(id: params[:dog_id])
         @journal_entry = current_user.journal_entries.find_by(id: params[:id])
     end
 
