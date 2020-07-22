@@ -5,7 +5,7 @@
     <legend>Journal Entries</legend>
     
     <%@user.journal_entries.each do |entry|%>
-        <h2><%=entry.title%></h2>
+        <h2><%=link_to entry.title, user_dog_journal_entry_path(entry.user_id, entry.dog_id, entry.id)%></h2>
         <p><%=entry.entry%></p>
        
         <%if can? :update, entry%><%=link_to "Edit Journal Entry", edit_user_dog_journal_entry_path(@user, entry.dog, entry)%><%end%>| 
@@ -18,6 +18,9 @@
 <div class="users-show-dogs">
     <fieldset>
     <legend><%=@user.first_name%>'s Dogs</legend>
+    
+    <%if current_user.id == @user.id %><%=link_to "Create New Dog", new_user_dog_path(current_user)%><%end%><br>
+
     <%@user.dogs.each do |dog|%>
         <%=link_to dog.name.capitalize, user_dog_path(@user, dog)%>| 
 
