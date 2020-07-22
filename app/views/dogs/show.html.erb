@@ -15,6 +15,10 @@
     <%if can? :destroy, @dog%>
      <%=link_to "Delete ", user_dog_path(@user, @dog), method: 'delete'%>
     <%end%>
+
+    <br>
+
+    <%if can? :create, @dog%><%=link_to "Create Journal Entry for #{@dog.name.capitalize}", new_user_dog_journal_entry_path(@user, @dog)%><%end%><br>
     
     
 </div>
