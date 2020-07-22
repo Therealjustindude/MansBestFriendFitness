@@ -46,7 +46,7 @@ class DogsController < ApplicationController
     private
 
     def dog_params
-        params.require(:dog).permit(:name, :breed, :age, :gender, :weight, :intact, :birthday, journal_entry_attributes[:title, :entry,:date], diet_entry_attributes[:food, :snacks, :water, :calories], exercise_entry_attributes[:name, :duration, :description])
+        params.require(:dog).permit(:name, :breed, :age, :gender, :weight, :intact, :birthday)#journal_entry_attributes[:title, :entry,:date], diet_entry_attributes[:food, :snacks, :water, :calories], exercise_entry_attributes[:name, :duration, :description])
     end
 
 end
