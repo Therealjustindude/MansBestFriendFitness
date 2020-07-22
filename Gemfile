@@ -37,7 +37,7 @@ gem 'pry'
 gem 'dotenv-rails'
 
 gem 'omniauth'
-gem 'omniauth-github'
+
 gem 'omniauth-facebook'
 
 
