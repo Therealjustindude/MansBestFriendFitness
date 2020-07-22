@@ -1,0 +1,19 @@
+<div class="journal-entry-show">
+
+    <h2><%= @journal_entry.title%></h2>
+
+    <p>
+        <%=@journal_entry.entry%>
+        <br>
+        <br>
+        Journal entry for: <%=@journal_entry.dog.name.capitalize%>
+        Authored by: <%=@journal_entry.user.full_name%>
+    </p>
+
+
+
+<%if can? :update, @journal_entry%><%=link_to "Edit Journal Entry", edit_user_dog_journal_entry_path(@journal_entry.user_id, @journal_entry.dog_id, @journal_entry)%><%end%>|
+
+ <%if can? :destroy, @journal_entry%><%=link_to "Delete ", user_dog_journal_entry_path(@journal_entry.user_id, @journal_entry.dog_id, @journal_entry), method: 'delete'%><%end%><br>
+    
+</div>
