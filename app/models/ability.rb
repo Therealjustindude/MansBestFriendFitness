@@ -12,6 +12,8 @@ class Ability
       else
         can :manage, Dog, user_id: user.id
         can :manage, JournalEntry, user_id: user.id
+        can :manage, DietEntry, user_id: user.id
+        can :manage, ExerciseEntry, user_id: user.id
         can :read, :all
       end
     #
