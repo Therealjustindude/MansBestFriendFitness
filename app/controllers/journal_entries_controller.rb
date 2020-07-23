@@ -17,10 +17,10 @@ class JournalEntriesController < ApplicationController
         
         @user_dog = current_user.dogs.find_by(id: params[:dog_id])
     
-        @new_je = current_user.journal_entries.build(dog_id: @user_dog.id)
+        @journal_entry = current_user.journal_entries.build(dog_id: @user_dog.id)
 
-        @new_je.diet_entries.build
-        @new_je.exercise_entries.build
+        @journal_entry.diet_entries.build
+        @journal_entry.exercise_entries.build
         #should I be building associations ^^^
     end
 
@@ -40,9 +40,13 @@ class JournalEntriesController < ApplicationController
     end
 
     def edit
-        @user = User.find_by(id: params[:user_id])
-        @user_dog = @user.dogs.find_by(id: params[:dog_id])
-        @journal_entry = current_user.journal_entries.find_by(id: params[:id])
+        @user_dog = current_user.dogs.find_by(id: params[:dog_id])
+        @journal_entry = @user_dog.journal_entries.find_by(id: params[:id])
+
+        @diet_entry = @journal_entry.diet_entries.find_by(journal_entry_id: params[:id])
+
+        @exercise_entry = @journal_entry.exercise_entries.find_by(journal_entry_id: params[:id])
+
     end
 
     def update
@@ -61,6 +65,6 @@ class JournalEntriesController < ApplicationController
 
     def journal_entry_params
         params.require(:journal_entry).permit(:title, :entry,:date, diet_entries_attributes: [:food, :snacks, :water, :calories], exercise_entries_attributes: [:name, :duration, :description])
-        #should it be exercise_entries and diet_entries
+    
     end
 end
