@@ -1,32 +1,36 @@
 <div class="journal-entry-show">
+    <h4>Journal Entry</h4>
+    <fieldset>
+    <h3><%= @journal_entry.title%></h3>
 
-    <h2><%= @journal_entry.title%></h2>
-
-    <p>
+    
         <%=@journal_entry.entry%>
         <br>
         <br>
         Journal entry for: <%=@journal_entry.dog.name.capitalize%>
         Authored by: <%=@journal_entry.user.full_name%>
-    </p>
+    </fieldset>
+   
 
+    <fieldset>
 
+    <h5>Diet Entry</h5>
     <%@journal_entry.diet_entries.each do |diet_entry|%>
-        <%=diet_entry.food%>
-        <%=diet_entry.water%>
-        <%=diet_entry.snacks%>
-        <%=diet_entry.calories%>
+        Food: <%=diet_entry.food%><br>
+        Water: <%=diet_entry.water%><br>
+        Snacks: <%=diet_entry.snacks%><br>
+        Calories: <%=diet_entry.calories%><br>
 
-    <%end%>
+    <%end%><br>
     
-    
+    <h5>Exercise Entry</h5>
     <%@journal_entry.exercise_entries.each do |exercise_entry|%>
         
-        <%=exercise_entry.food%>
-        <%=exercise_entry.water%>
-        <%=exercise_entry.snacks%>
-        <%=exercise_entry.calories%>
-        <%end%>
+        Name: <%=exercise_entry.name%><br>
+        Description: <%=exercise_entry.description%><br>
+        Duration: <%=exercise_entry.duration%><br>
+    <%end%><br>
+    </fieldset>
    
 
 
