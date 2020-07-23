@@ -1,35 +1,40 @@
-<%=form_for [current_user, @user_dog, @new_je] do |f|%>
+<%=form_for [current_user, @user_dog, @journal_entry] do |f|%>
+    <h2><%=@user_dog.name.capitalize%>'s Journal</h2>
     <%=f.label :title%>
-    <%=f.text_field :title%>
+    <%=f.text_field :title%><br>
     <%=f.label :entry%>
-    <%=f.text_area :entry%>
+    <%=f.text_area :entry%><br>
     <%=f.label :date%>
-    <%=f.date_field :date%>
-   
-    <%=f.fields_for :exercise_entries do |exercise_entry|%>
+    <%=f.date_field :date%><br>
+    <br>
         <fieldset>
-        <legend>Exercise Entry</legend>
-        <%=exercise_entry.label :name%>
-        <%=exercise_entry.text_field :name%>
-        <%=exercise_entry.label :duration%>
-        <%=exercise_entry.time_field :duration%>
-        <%=exercise_entry.label :description%>
-        <%=exercise_entry.text_area :description%>
-    <%end%>
+            <legend>Exercise Entries</legend>
+             <%=f.fields_for :exercise_entries do |exercise_entry|%>
+                <h3>Exercise Information</h3>
+                <%=exercise_entry.label :name%>
+                <%=exercise_entry.text_field :name%><br>
+                <%=exercise_entry.label :description%>
+                <%=exercise_entry.text_area :description%><br>
+                <%=exercise_entry.label :duration%>
+                <%=exercise_entry.time_field :duration%><br>
+            <%end%>
         </fieldset>
-    
-    <%=f.fields_for :diet_entries do |diet_entry|%>
+    <br>
         <fieldset>
-        <legend>Diet Entry</legend>
-        <%=diet_entry.label :food%>
-        <%=diet_entry.text_area :food%>
-        <%=diet_entry.label :snacks%>
-        <%=diet_entry.text_area :snacks%>
-        <%=diet_entry.label :water%>
-        <%=diet_entry.text_area :water%>
-        <%=diet_entry.label :calories%>
-        <%=diet_entry.number_field :calories%>
-    <%end%>
-        </fieldset>
+            <legend>Diet Entry</legend>
+                <%=f.fields_for :diet_entries do |diet_entry|%>
+                    <h3>Diet Information</h3>
+                    <%=diet_entry.label :food%>
+                    <%=diet_entry.text_area :food%><br>
+                    <%=diet_entry.label :snacks%>
+                    <%=diet_entry.text_area :snacks%><br>
+                    <%=diet_entry.label :calories%>
+                    <%=diet_entry.number_field :calories%><br>
+                    <%=diet_entry.label :water%>
+                    <%=diet_entry.text_area :water%><br>
+                    
+                <%end%>
+         </fieldset>
+    <br>
     <%=f.submit%>
 <%end%>
