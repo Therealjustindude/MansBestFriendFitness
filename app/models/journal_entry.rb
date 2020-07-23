@@ -14,7 +14,6 @@ class JournalEntry < ApplicationRecord
       def diet_entries_attributes=(diet_info)
         diet_obj = DietEntry.where(journal_entry_id: self.id).first_or_create do | diet_entry|
             diet_info.values.each do|info|
-              binding.pry
 
                 diet_entry.food= info[:food]
                 diet_entry.snacks=info[:snacks]
