@@ -11,6 +11,25 @@
     </p>
 
 
+    <%@journal_entry.diet_entries.each do |diet_entry|%>
+        <%=diet_entry.food%>
+        <%=diet_entry.water%>
+        <%=diet_entry.snacks%>
+        <%=diet_entry.calories%>
+
+    <%end%>
+    
+    
+    <%@journal_entry.exercise_entries.each do |exercise_entry|%>
+        
+        <%=exercise_entry.food%>
+        <%=exercise_entry.water%>
+        <%=exercise_entry.snacks%>
+        <%=exercise_entry.calories%>
+        <%end%>
+   
+
+
 
 <%if can? :update, @journal_entry%><%=link_to "Edit Journal Entry", edit_user_dog_journal_entry_path(@journal_entry.user_id, @journal_entry.dog_id, @journal_entry)%><%end%>|
 
