@@ -14,6 +14,8 @@ class JournalEntry < ApplicationRecord
       def diet_entries_attributes=(diet_info)
         diet_obj = DietEntry.where(journal_entry_id: self.id).first_or_create do | diet_entry|
             diet_info.values.each do|info|
+              binding.pry
+
                 diet_entry.food= info[:food]
                 diet_entry.snacks=info[:snacks]
                 diet_entry.water= info[:water]
@@ -21,7 +23,7 @@ class JournalEntry < ApplicationRecord
             end
         end
         
-        self.diet_entries << diet_obj unless diet_info.values.first.values.any?(&:blank?)
+        self.diet_entries << diet_obj 
     
       end
     
@@ -34,7 +36,7 @@ class JournalEntry < ApplicationRecord
                 exercise_entry.description= info[:description]
             end
         end
-        self.exercise_entries <<  exercise_obj unless exercise_info.values.first.values.any?(&:blank?)
+        self.exercise_entries <<  exercise_obj 
         
       end
     
