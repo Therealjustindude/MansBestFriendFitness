@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     resources :dogs do
       resources :journal_entries
-      resources :exercise_entries
-      resources :diet_entries
     end
   end
  
