@@ -2,14 +2,16 @@ class JournalEntriesController < ApplicationController
     load_and_authorize_resource
     before_action :authenticate_user!
     
+    def index
+        
+    end
 
     def show
-            @user = User.find_by(id: params[:user_id])
-            @journal_entry = @user.journal_entries.find_by(id: params[:id])
+            @user_dog = current_user.dogs.find_by(id: params[:dog_id])
+            @journal_entry = @user_dog.journal_entries.find_by(id: params[:id])
             if @journal_entry.nil?
-              redirect_to user_path(@user), alert: "Journal entry not found"
-            else
-            @journal_entry = JournalEntry.find(params[:id])
+              user = User.find_by(id: parmas[:user_id])
+              redirect_to user_path(user), alert: "Journal entry not found"
             end
     end
 
@@ -42,16 +44,13 @@ class JournalEntriesController < ApplicationController
     def edit
         @user_dog = current_user.dogs.find_by(id: params[:dog_id])
         @journal_entry = @user_dog.journal_entries.find_by(id: params[:id])
-
-        @diet_entry = @journal_entry.diet_entries.find_by(journal_entry_id: params[:id])
-
-        @exercise_entry = @journal_entry.exercise_entries.find_by(journal_entry_id: params[:id])
-
     end
 
     def update
         journal_entry = current_user.journal_entries.find_by(id: params[:id])
+
         journal_entry.update(journal_entry_params)
+        
         redirect_to user_path(current_user)
     end
 
