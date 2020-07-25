@@ -2,9 +2,8 @@
     <div id= "error_explanation">
         <% if @dog.errors.any? %>
             <% @dog.errors.full_messages.each do |message| %>
-        <%= message %> 
-    <% end %>
-
+                 <%= message %> <br>
+            <% end %>
         <% end %>
     </div>
 
