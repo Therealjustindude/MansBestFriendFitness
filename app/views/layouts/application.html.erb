@@ -10,28 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-<div class="sidenav">
-   <%= link_to "MBFF Home", root_path, class:"sidenav-link"%>
-  <% if user_signed_in?%>
-    <%= link_to "Account", user_path(current_user), class:"sidenav-link"%>
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class:"sidenav-link"%>
-  <%else%>
-    <%= link_to "Sign up", new_user_registration_path, class:"sidenav-link"%>
-    <%= link_to "Sign in", new_user_session_path, class:"sidenav-link"%>
-  <%end%>
-</div>
+        <%= render "layouts/sidenav"%>
 
-<div class="content">
-  <p class="notice"><%= notice %></p> 
-  <p class="alert"><%= alert %></p>
+          <div class="content">
+            <p class="notice"><%= notice %></p> 
+            <p class="alert"><%= alert %></p>
 
- 
-   <%= yield %>
-</div>
-  
-
-   
-    
-  
+            <%= yield %>
+          </div>
+      
   </body>
 </html>
