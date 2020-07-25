@@ -1,19 +1,15 @@
 <%=form_for [current_user,@dog] do |f|%>
+    <div id= "error_explanation">
+        <% if @dog.errors.any? %>
+            <% @dog.errors.full_messages.each do |message| %>
+        <%= message %> 
+    <% end %>
 
-    <%=f.label :name%>
-    <%=f.text_field :name%><br>
-    <%=f.label :breed%>
-    <%=f.text_field :breed%><br>
-    <%=f.label :age%>
-    <%=f.number_field :age%><br>
-    <%=f.label :weight%>
-    <%=f.number_field :weight%><br>
-    <%=f.label :gender%>
-    <%=f.text_field :gender%><br>
-    <%=f.label :intact, 'Check if your pet is not spayed/nuetered'%>
-    <%=f.check_box :intact%><br>
-    <%=f.label :birthday%>
-    <%=f.date_field :birthday%><br>
+        <% end %>
+    </div>
+
+    <%= render partial: 'dog_form_attr', locals: {f: f}%>
+   
 <%=f.submit "Submit"%>
 
 <%end%>
