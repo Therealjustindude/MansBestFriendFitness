@@ -6,7 +6,7 @@ class CreateDietEntries < ActiveRecord::Migration[6.0]
       t.string :water
       t.integer :calories
       t.integer :journal_entry_id
-
+      t.integer :dog_id
 
       t.timestamps
     end
