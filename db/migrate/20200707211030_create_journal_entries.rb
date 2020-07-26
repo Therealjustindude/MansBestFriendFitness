@@ -6,8 +6,7 @@ class CreateJournalEntries < ActiveRecord::Migration[6.0]
       t.date :date
       t.integer :dog_id
       t.integer :user_id
-      # t.integer :diet_entry_id
-      # t.integer :exercise_entry_id
+     
 
       t.timestamps
     end
