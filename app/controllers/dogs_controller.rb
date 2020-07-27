@@ -3,17 +3,13 @@ class DogsController < ApplicationController
     before_action :authenticate_user!
 
     def show
-        if current_user.id != params[:user_id]
-            @user = User.find_by(id: params[:user_id])
-            @dog = @user.dogs.find_by(id: params[:id])
-            
+        if current_user.id = params[:user_id]
+            current_users_dog
         else
-            @dog = current_user.dogs.find_by(id: params[:id])
+            not_current_user_and_dog
         end
-        
-        #if dog id not in db
-        if @dog.nil? 
-            
+       
+        if @dog.nil?
             redirect_to root_path, alert: "Dog not found"
         end
     end
@@ -32,25 +28,34 @@ class DogsController < ApplicationController
     end
 
     def edit
-        @dog = current_user.dogs.find_by(id: params[:id])
+        current_users_dog
     end
 
     def update
-        dog = current_user.dogs.find_by(id: params[:id])
+        current_users_dog
         dog.update(dog_params)
         redirect_to user_path(current_user)
     end
 
     def destroy
-        dog = current_user.dogs.find_by(id: params[:id])
-        dog.destroy
+        current_users_dog
+        @dog.destroy
         redirect_to user_path(current_user)
     end
 
     private
 
     def dog_params
-        params.require(:dog).permit(:name, :breed, :age, :gender, :weight, :intact, :birthday)#journal_entry_attributes[:title, :entry,:date], diet_entry_attributes[:food, :snacks, :water, :calories], exercise_entry_attributes[:name, :duration, :description])
+        params.require(:dog).permit(:name, :breed, :age, :gender, :weight, :intact, :birthday)
+    end
+
+    def current_users_dog
+        @dog = current_user.dogs.find_by(id: params[:id])
+    end
+
+    def not_current_user_and_dog
+        @user = User.find_by(id: params[:user_id])
+        @dog = @user.dogs.find_by(id: params[:id])
     end
 
 end
