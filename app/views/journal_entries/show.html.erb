@@ -7,8 +7,8 @@
         <%=@journal_entry.entry%>
         <br>
         <br>
-        Journal entry for: <%=@journal_entry.dog.name.capitalize%>
-        Authored by: <%=@journal_entry.user.full_name%>
+        For: <%=@journal_entry.dog.name.capitalize%>
+        By: <%=@journal_entry.user.full_name%>
     </fieldset>
    
 
@@ -28,7 +28,8 @@
         
         Name: <%=exercise_entry.name%><br>
         Description: <%=exercise_entry.description%><br>
-        Duration: <%=exercise_entry.duration%><br>
+        Duration of exercise: 
+        <%=exercise_entry.duration%> minutes<br>
     <%end%><br>
     </fieldset>
    
