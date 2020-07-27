@@ -3,14 +3,18 @@ class DogsController < ApplicationController
     before_action :authenticate_user!
 
     def show
-        if params[:user_id]
+        if current_user.id != params[:user_id]
             @user = User.find_by(id: params[:user_id])
             @dog = @user.dogs.find_by(id: params[:id])
-            if @user.nil?
-              redirect_to user_dogs_path(@user), alert: "Dog not found"
-            end
+            
         else
-            @dog = Dog.find(params[:id])
+            @dog = current_user.dogs.find_by(id: params[:id])
+        end
+        
+        #if dog id not in db
+        if @dog.nil? 
+            
+            redirect_to root_path, alert: "Dog not found"
         end
     end
 
