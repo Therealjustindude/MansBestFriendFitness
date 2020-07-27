@@ -14,7 +14,7 @@ class JournalEntry < ApplicationRecord
 
       def diet_entries_attributes=(diet_info)
         diet_obj= DietEntry.find_by(journal_entry_id: self.id)
-        if diet_obj.journal_entry_id.nil?
+        if diet_obj.nil?
           diet_obj = self.diet_entries.build
             diet_info.values.each do|info| 
                 diet_obj.food= info[:food]
@@ -33,7 +33,7 @@ class JournalEntry < ApplicationRecord
       def exercise_entries_attributes=(exercise_info)
         exercise_obj= ExerciseEntry.find_by(journal_entry_id: self.id)
 
-        if exercise_obj.journal_entry_id.nil?
+        if exercise_obj.nil?
           exercise_obj = self.exercise_entries.build 
               exercise_info.values.each do |info|
                   exercise_obj.name= info[:name]
