@@ -5,12 +5,21 @@ class JournalEntriesController < ApplicationController
     
 
     def show
+        if current_user.id != params[:user_id]
+            user = User.find_by(id: params[:user_id])
+            @journal_entry = user.journal_entries.find_by(id: params[:id])
+
+
+        else 
             @user_dog = current_user.dogs.find_by(id: params[:dog_id])
             @journal_entry = @user_dog.journal_entries.find_by(id: params[:id])
-            if @journal_entry.nil?
-              user = User.find_by(id: parmas[:user_id])
-              redirect_to user_path(user), alert: "Journal entry not found"
-            end
+        end
+
+
+        if @journal_entry.nil?
+            user = User.find_by(id: parmas[:user_id])
+            redirect_to user_path(user), alert: "Journal entry not found"
+        end
     end
 
     def new
