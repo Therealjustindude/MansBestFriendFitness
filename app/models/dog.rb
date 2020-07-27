@@ -5,10 +5,17 @@ class Dog < ApplicationRecord
     has_many :diet_entries, through: :journal_entries
 
     validates :user_id, presence: true
-    validates :name, uniqueness: true, presence: true
+    validates :name, presence: true
     validates :breed, presence: true
     validates :age, presence: true
     validates :gender, presence: true
     
+    def self.search(query)
+        if query.present?
+          where('FIRST_NAME like ? OR LAST_NAME like ?', "%#{query}%", "%#{query}%")
+        else
+          self.all
+        end
+    end
 
 end
