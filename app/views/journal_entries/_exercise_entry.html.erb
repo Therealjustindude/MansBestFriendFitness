@@ -3,5 +3,5 @@
                 <%=exercise_entry.text_field :name, placeholder: "Enter name of exercise..."%><br>
                 <%=exercise_entry.label :description%>
                 <%=exercise_entry.text_area :description, placeholder: "Describe what you did..."%><br>
-                <%=exercise_entry.label :duration, "Time of Exercise"%>
-                <%=exercise_entry.time_field :duration%><br>
+                <%=exercise_entry.label :duration, "Duration of Exercise in minutes"%>
+                <%=exercise_entry.number_field :duration%> minutes<br>
