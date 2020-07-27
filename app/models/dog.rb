@@ -10,12 +10,5 @@ class Dog < ApplicationRecord
     validates :age, presence: true
     validates :gender, presence: true
     
-    def self.search(query)
-        if query.present?
-          where('FIRST_NAME like ? OR LAST_NAME like ?', "%#{query}%", "%#{query}%")
-        else
-          self.all
-        end
-    end
 
 end
