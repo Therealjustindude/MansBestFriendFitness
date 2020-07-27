@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_214604) do
 
   create_table "exercise_entries", force: :cascade do |t|
     t.string "name"
-    t.time "duration"
+    t.integer "duration"
     t.string "description"
     t.integer "journal_entry_id"
     t.integer "dog_id"
