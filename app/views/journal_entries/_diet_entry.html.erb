@@ -1,9 +1,9 @@
 <h3>Diet Information</h3>
-                    <%=diet_entry.label :food%>
-                    <%=diet_entry.text_area :food%><br>
-                    <%=diet_entry.label :snacks%>
-                    <%=diet_entry.text_area :snacks%><br>
-                    <%=diet_entry.label :calories%>
-                    <%=diet_entry.number_field :calories%><br>
-                    <%=diet_entry.label :water%>
-                    <%=diet_entry.text_area :water%><br>
+     <%=diet_entry.label :food%>
+     <%=diet_entry.text_area :food, placeholder: "Breakfast, Lunch or Dinner..."%><br>
+     <%=diet_entry.label :snacks%>
+     <%=diet_entry.text_area :snacks, placeholder: "List out snacks..."%><br>
+     <%=diet_entry.label :calories%>
+     <%=diet_entry.number_field :calories, placeholder: "Enter total calories so far..."%><br>
+     <%=diet_entry.label :water%>
+     <%=diet_entry.text_area :water, placeholder: "Scant, Normal or Excessive..."%><br>

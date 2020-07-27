@@ -1,7 +1,9 @@
 <h2><%=user_dog.name.capitalize%>'s Journal</h2>
     <%=f.label :title%>
-    <%=f.text_field :title%><br>
+    <%=f.text_field :title, placeholder: (journal_entry.errors[:title].first || "Enter a Title")%><br>
     <%=f.label :entry%>
-    <%=f.text_area :entry%><br>
+    <%=f.text_area :entry, placeholder: (journal_entry.errors[:entry].first || "Enter your journal entry...")%><br>
     <%=f.label :date%>
-    <%=f.date_field :date%><br>
+    <%=f.date_field :date%>
+    <%=journal_entry.errors[:date].first if @journal_entry.errors.any?%><br>
+       

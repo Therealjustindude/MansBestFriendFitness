@@ -1,12 +1,6 @@
 <%=form_for [current_user, @user_dog, @journal_entry] do |f|%>
-
-    <% if @journal_entry.errors.any? %>
-            <% @journal_entry.errors.full_messages.each do |message| %>
-                 <%= message %> <br>
-            <% end %>
-    <% end %>
-
-        <%= render partial: "journal_entry", locals: {f: f, user_dog: @user_dog}%>
+    
+        <%= render partial: "journal_entry", locals: {f: f, user_dog: @user_dog, journal_entry: @journal_entry}%>
     
     <br>
         <fieldset>

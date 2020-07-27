@@ -1,13 +1,6 @@
 <%=form_for [current_user,@dog] do |f|%>
-    <div id= "error_explanation">
-        <% if @dog.errors.any? %>
-            <% @dog.errors.full_messages.each do |message| %>
-                 <%= message %> <br>
-            <% end %>
-        <% end %>
-    </div>
-
-    <%= render partial: 'dog_form_attr', locals: {f: f}%>
+   
+    <%= render partial: 'dog_form_attr', locals: {f: f, dog: @dog}%>
    
 <%=f.submit "Submit"%>
 

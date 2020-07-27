@@ -1,7 +1,7 @@
 <h3>Exercise Information</h3>
                 <%=exercise_entry.label :name%>
-                <%=exercise_entry.text_field :name%><br>
+                <%=exercise_entry.text_field :name, placeholder: "Enter name of exercise..."%><br>
                 <%=exercise_entry.label :description%>
-                <%=exercise_entry.text_area :description%><br>
-                <%=exercise_entry.label :duration%>
+                <%=exercise_entry.text_area :description, placeholder: "Describe what you did..."%><br>
+                <%=exercise_entry.label :duration, "Time of Exercise"%>
                 <%=exercise_entry.time_field :duration%><br>
