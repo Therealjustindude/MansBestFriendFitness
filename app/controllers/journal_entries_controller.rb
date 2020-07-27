@@ -2,9 +2,7 @@ class JournalEntriesController < ApplicationController
     load_and_authorize_resource
     before_action :authenticate_user!
     
-    def index
-        
-    end
+    
 
     def show
             @user_dog = current_user.dogs.find_by(id: params[:dog_id])
