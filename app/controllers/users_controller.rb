@@ -3,8 +3,11 @@ class UsersController < ApplicationController
     before_action :authenticate_user!
     
     def show  
-    
-         @user = User.find_by(id: params[:id])
+        if !User.find_by(id: params[:id])
+            redirect_to user_path(current_user)
+        end
+
+        @user = User.find_by(id: params[:id])
         
 
     end 
