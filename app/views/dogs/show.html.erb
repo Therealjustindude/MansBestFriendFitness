@@ -1,4 +1,6 @@
 <div class="dog-show">
+
+    
     <h1><%=@dog.name.capitalize%>'s Information</h1>
     
         Breed: <%=@dog.breed%><br>
@@ -9,16 +11,16 @@
         Birthday: <%=@dog.birthday%><br>
 
     <%if can? :update, @dog%>
-     <%=link_to "Edit", edit_user_dog_path(@user, @dog)%>
+     <%=link_to "Edit", edit_user_dog_path(current_user, @dog)%>
     <%end%>
     |
     <%if can? :destroy, @dog%>
-     <%=link_to "Delete ", user_dog_path(@user, @dog), method: 'delete'%>
+     <%=link_to "Delete ", user_dog_path(current_user, @dog), method: 'delete'%>
     <%end%>
 
     <br>
 
-    <%if can? :create, @dog%><%=link_to "Create Journal Entry for #{@dog.name.capitalize}", new_user_dog_journal_entry_path(@user, @dog)%><%end%><br>
+    <%if can? :create, @dog%><%=link_to "Create Journal Entry for #{@dog.name.capitalize}", new_user_dog_journal_entry_path(current_user, @dog)%><%end%><br>
     
     
 </div>
