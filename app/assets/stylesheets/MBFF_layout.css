@@ -164,6 +164,28 @@ fieldset legend {
     margin-top: 10px;
 }
 
+.field_with_errors input[type=date] {
+    background-color: #f8f8f8;
+    border: solid red;
+    padding: 10px !important;
+    border-radius: 0 !important;
+    position: relative;
+    display: inline-block !important;
+    box-shadow: 1px 1px 1px #aaaaaa;
+    margin-top: 10px;
+}
+
+.field_with_errors textarea {
+    background-color: #f8f8f8;
+    border: solid red;
+    padding: 10px !important;
+    border-radius: 0 !important;
+    position: relative;
+    display: inline-block !important;
+    box-shadow: 1px 1px 1px #aaaaaa;
+    margin-top: 10px;
+}
+
 #error_explanation {
     font: 10px/0.5 Helvetica, Verdana, sans-serif;
     margin: 10px;
