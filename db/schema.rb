@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2020_07_17_214604) do
     t.string "water"
     t.integer "calories"
     t.integer "journal_entry_id"
-    t.integer "dog_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -41,7 +40,6 @@ ActiveRecord::Schema.define(version: 2020_07_17_214604) do
     t.integer "duration"
     t.string "description"
     t.integer "journal_entry_id"
-    t.integer "dog_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
