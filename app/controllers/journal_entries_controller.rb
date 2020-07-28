@@ -1,6 +1,7 @@
 class JournalEntriesController < ApplicationController
-    load_and_authorize_resource
+    include JournalEntriesHelper
     before_action :authenticate_user!
+    
     
     
 
@@ -14,7 +15,7 @@ class JournalEntriesController < ApplicationController
 
 
         if @journal_entry.nil?
-            redirect_to user_path(current_user), alert: "Journal entry not found"
+            redirect_to user_path(current_user), alert: "Journal entry could not be found..."
         end
     end
 
@@ -59,12 +60,5 @@ class JournalEntriesController < ApplicationController
     def journal_entry_params
         params.require(:journal_entry).permit(:title, :entry,:date, diet_entries_attributes: [:food, :snacks, :water, :calories], exercise_entries_attributes: [:name, :duration, :description])
     end
-    
-    def current_user_dog
-        @user_dog = current_user.dogs.find_by(id: params[:dog_id])
-    end
-
-    def current_user_journal_entry
-        @journal_entry = current_user.journal_entries.find_by(id: params[:id])
-    end
+     
 end
