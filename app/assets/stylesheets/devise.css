@@ -1,0 +1,59 @@
+input[type=email],
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #A9BBBE;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+h2 {
+    text-align: center;
+}
+
+.field {
+    padding: 5px;
+}
+
+.devise-shared-links {
+    text-align: center;
+    padding: 5px;
+}
+
+.devise-shared-links a {
+    /* RESET */
+    text-decoration: none;
+    line-height: 1;
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    padding: 5px 5px;
+    overflow: hidden;
+    color: #333;
+    vertical-align: bottom;
+    transition: color .3s ease-out;
+}
+
+.devise-shared-links a::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transform: translateY(calc(100% - 2px));
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    transition: transform .25s ease-out;
+}
+
+.devise-shared-links a:hover {
+    color: #fff;
+}
+
+.devise-shared-links a:hover::before {
+    transform: translateY(0);
+    transition: transform .25s ease-out;
+}

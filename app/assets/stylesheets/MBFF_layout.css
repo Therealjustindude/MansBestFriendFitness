@@ -53,6 +53,10 @@ body {
     padding-left: 20px;
 }
 
+input {
+    margin: 10px;
+}
+
 input[type=button],
 input[type=submit],
 input[type=reset] {
@@ -83,8 +87,6 @@ span {
     padding: 8px 12px;
     font-size: 14px;
     line-height: 25px;
-    color: var(--group-color);
-    background: var(--group-background);
 }
 
 input[type=number] {
@@ -98,6 +100,16 @@ input[type=number] {
 }
 
 input[type=date] {
+    width: auto;
+    padding: 5px 5px;
+    box-sizing: content-box;
+    border: 2px solid #A9BBBE;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+select {
     width: auto;
     padding: 5px 5px;
     box-sizing: content-box;
@@ -136,4 +148,48 @@ fieldset legend {
     border-radius: 5px;
     box-shadow: 0 0 5px 5px #D7CEC3;
     margin-left: 10px;
+}
+
+
+/* Style Errors*/
+
+.field_with_errors input[type=text] {
+    background-color: #f8f8f8;
+    border: solid red;
+    padding: 10px !important;
+    border-radius: 0 !important;
+    position: relative;
+    display: inline-block !important;
+    box-shadow: 1px 1px 1px #aaaaaa;
+    margin-top: 10px;
+}
+
+#error_explanation {
+    font: 10px/0.5 Helvetica, Verdana, sans-serif;
+    margin: 10px;
+    padding: 5px;
+    text-align: left;
+    border: none;
+    color: red;
+}
+
+#error_explanation li {
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+    margin: 5px;
+}
+
+.notice {
+    font: 10px/0.5 Helvetica, Verdana, sans-serif;
+    text-align: left;
+    color: #A9BBBE;
+}
+
+.alert {
+    font: 15px/0.5 Helvetica, Verdana, sans-serif;
+    margin: 5px;
+    padding: 5px;
+    text-align: left;
+    color: rgba(224, 75, 75, 0.89);
 }
