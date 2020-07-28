@@ -2,15 +2,9 @@
 
     <h1>Welcome <%=link_to current_user.full_name, user_path(current_user)%></h1>
     
+    <%= render 'search'%>
+    
     <h1>Journal Entries</h1>
-
-    <%= form_tag root_path, method: :get do %>
-        <p>
-            <%= text_field_tag :query, params[:query] %>
-            <%= submit_tag "Search", name: nil %>
-        </p>
-    <% end %>
-
 
     <ul>
     <%@user.each do |user|%>
