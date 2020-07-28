@@ -10,8 +10,8 @@ class JournalEntry < ApplicationRecord
     validates :entry, presence:true
     validates :date, presence:true
 
-    
 
+   
       def diet_entries_attributes=(diet_info)
         diet_obj= DietEntry.find_by(journal_entry_id: self.id)
         if diet_obj.nil?
@@ -27,8 +27,9 @@ class JournalEntry < ApplicationRecord
           diet_params = diet_info.values[0]
           diet_obj.update(diet_params)
         end
-    
       end
+    
+     
     
       def exercise_entries_attributes=(exercise_info)
         exercise_obj= ExerciseEntry.find_by(journal_entry_id: self.id)
