@@ -1,0 +1,182 @@
+/*journal entry div content*/
+
+.users-show-journals h1 {
+    font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#users-journal-entries {
+    box-shadow: 3px 3px 3px 3px #A9BBBE;
+}
+
+#users-journal-entries h4 {
+    font: 20px/.5 Helvetica, Verdana, sans-serif;
+    margin: 0;
+    padding: 5px;
+    text-align: right;
+}
+
+#users-journal-entries h2 {
+    font: 40px/1.0 Helvetica, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#users-journal-entries p {
+    font: 20px/1.0 Helvetica, Verdana, sans-serif;
+    margin: 10px;
+    padding: 0;
+    text-align: center;
+}
+
+
+/* journal entry links */
+
+#users-journal-entries a {
+    /* RESET */
+    text-decoration: none;
+    line-height: 1;
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    padding: 10px;
+    overflow: hidden;
+    color: #333;
+    vertical-align: bottom;
+    transition: color .3s ease-out;
+    border-style: none;
+    margin: 10px;
+}
+
+#users-journal-entries a::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transform: translateY(calc(100% - 2px));
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    transition: transform .25s ease-out;
+}
+
+#users-journal-entries a:hover {
+    color: #fff;
+}
+
+#users-journal-entries a:hover::before {
+    transform: translateY(0);
+    transition: transform .25s ease-out;
+}
+
+
+/*user dog links*/
+
+#new-dog-link {
+    text-align: right;
+}
+
+#new-dog-link a {
+    /* RESET */
+    text-decoration: none;
+    line-height: 1;
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    padding: 5px;
+    overflow: hidden;
+    color: #333;
+    vertical-align: text-top;
+    transition: color .3s ease-out;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 5px #A9BBBE;
+    border-style: none;
+    margin: auto;
+}
+
+#new-dog-link a::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transform: translateY(calc(100% - 2px));
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    transition: transform .25s ease-out;
+}
+
+#new-dog-link a:hover {
+    color: #fff;
+}
+
+#new-dog-link a:hover::before {
+    transform: translateY(0);
+    transition: transform .25s ease-out;
+}
+
+#user-dogs-show a {
+    /* RESET */
+    text-decoration: none;
+    line-height: 1;
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    padding: 10px;
+    overflow: hidden;
+    color: #333;
+    vertical-align: bottom;
+    transition: color .3s ease-out;
+    margin: 10px;
+}
+
+#user-dogs-show a::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transform: translateY(calc(100% - 2px));
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+    transition: transform .25s ease-out;
+}
+
+#user-dogs-show a:hover {
+    color: #fff;
+}
+
+#user-dogs-show a:hover::before {
+    transform: translateY(0);
+    transition: transform .25s ease-out;
+}
+
+
+/*user dog div content*/
+
+#each-dog h3 {
+    font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
+    margin: auto;
+    padding: auto;
+    text-align: center;
+    width: auto;
+}
+
+#each-dog {
+    font: 10px/1.5 Helvetica, Verdana, sans-serif;
+    margin: auto;
+    text-align: center;
+    border-radius: 1px;
+    box-shadow: 1px 1px 1px 1px #A9BBBE;
+}
+
+#dog-links {
+    text-align: center;
+    font: 10px/1.5 Helvetica, Verdana, sans-serif;
+}

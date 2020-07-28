@@ -6,15 +6,18 @@
     <%@user.journal_entries.each do |entry|%>
         <div id="users-journal-entries">
             <br>
-            <label><%=entry.dog.name.capitalize%>:</label>
+
+            <h4><%=entry.dog.name.capitalize%></h4>
 
             <h2><%=link_to entry.title, user_dog_journal_entry_path(entry.user_id, entry.dog_id, entry.id)%> </h2>
-            <p><%=entry.entry%></p>
-        
-        
-            <%if can? :update, entry%><%=link_to "Edit Journal Entry", edit_user_dog_journal_entry_path(@user, entry.dog, entry)%><%end%>| 
-            <%if can? :destroy, entry%><%=link_to "Delete ", user_dog_journal_entry_path(@user, entry.dog, entry), method: 'delete'%><%end%><br>
-            <%end%>
+            <p>
+                <%=entry.entry%><br>
+            
+            
+                <%if can? :update, entry%><%=link_to "Edit Journal Entry", edit_user_dog_journal_entry_path(@user, entry.dog, entry)%><%end%>
+                <%if can? :destroy, entry%><%=link_to "Delete ", user_dog_journal_entry_path(@user, entry.dog, entry), method: 'delete'%><%end%><br>
+                <%end%>
+            </p>
            
         <div>
     </fieldset>

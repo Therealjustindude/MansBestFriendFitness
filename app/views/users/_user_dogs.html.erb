@@ -1,18 +1,25 @@
 <div class="users-show-dogs">
     <fieldset>
     <legend><%=@user.first_name%>'s Dogs</legend>
-    
-    <%if current_user.id == @user.id %><%=link_to "Create New Dog", new_user_dog_path(current_user)%><%end%><br>
+    <p id="new-dog-link">
+        <%if current_user.id == @user.id %><%=link_to "Create New Dog", new_user_dog_path(current_user)%><%end%>
+    </p>
+    <div id="user-dogs-show">
+        
+        <%@user.dogs.each do |dog|%>
+            <div id="each-dog">
+                <h3><%=link_to dog.name.capitalize, user_dog_path(@user, dog)%></h3>
 
-    <%@user.dogs.each do |dog|%>
-        <%=link_to dog.name.capitalize, user_dog_path(@user, dog)%>| 
+                <p id="dog-links">
+                    <%if can? :update, dog%><%=link_to "Edit", edit_user_dog_path(@user, dog)%><%end%>
 
-        <%if can? :update, dog%><%=link_to "Edit", edit_user_dog_path(@user, dog)%><%end%>|
+                    <%if can? :destroy, dog%><%=link_to "Delete ", user_dog_path(@user, dog), method: 'delete'%><%end%>
 
-        <%if can? :destroy, dog%><%=link_to "Delete ", user_dog_path(@user, dog), method: 'delete'%><%end%><br>|
+                    <%if can? :create, dog%><%=link_to "Create Journal Entry for #{dog.name.capitalize}", new_user_dog_journal_entry_path(@user, dog)%><%end%>
+                </p>
+            </div>
 
-        <%if can? :create, dog%><%=link_to "Create Journal Entry for #{dog.name.capitalize}", new_user_dog_journal_entry_path(@user, dog)%><%end%><br>
-
-    <%end%>
+        <%end%>
+    </div>
     </fieldset>
 </div>

@@ -1,0 +1,139 @@
+<style>* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Style the side navigation */
+
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #A9BBBE;
+    overflow-x: hidden;
+}
+
+
+/* Side navigation links */
+
+.sidenav a {
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Change color on hover */
+
+.sidenav a:hover {
+    background-color: #D7CEC3;
+    color: #3D2B1E;
+}
+
+
+/* Style the content */
+
+.content {
+    width: auto;
+    background-color: #fafafa;
+    padding: 50px;
+    box-shadow: 0 0 5px 5px #A9BBBE;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-left: 200px;
+    padding-left: 20px;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    background-color: #A9BBBE;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 5px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 1px 1px #A9BBBE;
+    border-style: none;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #A9BBBE;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+span {
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 25px;
+    color: var(--group-color);
+    background: var(--group-background);
+}
+
+input[type=number] {
+    width: auto;
+    padding: 5px 15px;
+    box-sizing: content-box;
+    border: 2px solid #A9BBBE;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+input[type=date] {
+    width: auto;
+    padding: 5px 5px;
+    box-sizing: content-box;
+    border: 2px solid #A9BBBE;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #A9BBBE;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+fieldset {
+    font-family: sans-serif;
+    border: 1px solid #D7CEC3;
+    background: #f8f8f8;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 0 5px 5px #D7CEC3;
+}
+
+fieldset legend {
+    background: #f8f8f8;
+    color: black;
+    padding: 5px 10px;
+    font-size: 32px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 5px #D7CEC3;
+    margin-left: 10px;
+}
