@@ -13,8 +13,9 @@ class JournalEntry < ApplicationRecord
 
    
       def diet_entries_attributes=(diet_info)
+        # binding.pry
         diet_obj= DietEntry.find_by(journal_entry_id: self.id)
-        if diet_obj.nil?
+        if diet_obj.nil? 
           diet_obj = self.diet_entries.build
             diet_info.values.each do|info| 
                 diet_obj.food= info[:food]
@@ -22,7 +23,7 @@ class JournalEntry < ApplicationRecord
                 diet_obj.water= info[:water]
                 diet_obj.calories= info[:calories]
             end
-            self.diet_entries << diet_obj 
+            self.diet_entries << diet_obj unless diet_info.values[0].values.any?{|el| el.empty? } #when a journal_entry wasn't valid it would render :new with 2 exercise entries instead of 1
         else
           diet_params = diet_info.values[0]
           diet_obj.update(diet_params)
@@ -41,7 +42,7 @@ class JournalEntry < ApplicationRecord
                   exercise_obj.duration=info[:duration]
                   exercise_obj.description= info[:description]
               end
-          self.exercise_entries <<  exercise_obj 
+          self.exercise_entries <<  exercise_obj unless exercise_info.values[0].values.any?{|el| el.empty? } #when a journal_entry wasn't valid it would render :new with 2 exercise entries instead of 1
         else 
           exercise_params = exercise_info.values[0]
           exercise_obj.update(exercise_params)
