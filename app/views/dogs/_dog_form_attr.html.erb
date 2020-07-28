@@ -5,10 +5,10 @@
     <%=f.label :age%>
     <%=f.number_field :age, placeholder: (dog.errors[:age].first || "Enter Age")%><br>
     <%=f.label :weight%>
-    <%=f.number_field :weight, placeholder: "Enter Weight"%><br>
+    <%=f.number_field :weight, placeholder: "Enter Weight"%><span>lbs</span><br>
     <%=f.label :gender%>
-    <%=f.text_field :gender, placeholder: (dog.errors[:gender].first || "Enter Gender")%><br>
-    <%=f.label :intact, 'Check if your pet is not spayed/nuetered'%>
-    <%=f.check_box :intact%><br>
+    <%=f.select(:gender, [["unkown", "unkown"], ["male", "male"],["female", "female"] ])%><br>
+    <%=f.label :fixed, 'Check if Spayed/ Nuetered:'%>
+    <%=f.check_box :fixed%><br>
     <%=f.label :birthday%>
     <%=f.date_field :birthday%><br>

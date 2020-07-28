@@ -16,7 +16,7 @@ class User < ApplicationRecord
       dog.age= dog_attributes[:age]
       dog.gender= dog_attributes[:gender]
       dog.weight= dog_attributes[:weight]
-      dog.intact= dog_attributes[:intact]
+      dog.intact= dog_attributes[:fixed]
       dog.birthday= dog_attributes[:birthday]
     end
   end

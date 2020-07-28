@@ -6,7 +6,7 @@ class CreateDogs < ActiveRecord::Migration[6.0]
       t.integer :age
       t.string :gender
       t.integer :weight
-      t.boolean :intact
+      t.boolean :fixed
       t.date :birthday
       t.integer :user_id
 

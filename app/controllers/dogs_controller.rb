@@ -34,7 +34,7 @@ class DogsController < ApplicationController
 
     def update
         current_users_dog
-        dog.update(dog_params)
+        @dog.update(dog_params)
         redirect_to user_path(current_user)
     end
 
@@ -47,7 +47,7 @@ class DogsController < ApplicationController
     private
 
     def dog_params
-        params.require(:dog).permit(:name, :breed, :age, :gender, :weight, :intact, :birthday)
+        params.require(:dog).permit(:name, :breed, :age, :gender, :weight, :fixed, :birthday)
     end
 
     

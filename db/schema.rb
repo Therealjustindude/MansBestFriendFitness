@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_214604) do
     t.integer "age"
     t.string "gender"
     t.integer "weight"
-    t.boolean "intact"
+    t.boolean "fixed"
     t.date "birthday"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
