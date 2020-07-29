@@ -4,7 +4,7 @@ class DogsController < ApplicationController
 
     
     def show
-        if current_user.id = params[:user_id]
+        if current_user.id == params[:user_id]
             current_users_dog
         else
             not_current_user_and_dog

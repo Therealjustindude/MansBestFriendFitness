@@ -6,7 +6,7 @@ class JournalEntriesController < ApplicationController
     
 
     def show
-        if current_user.id = params[:user_id]
+        if current_user.id == params[:user_id]
             current_user_journal_entry
         else 
             user = User.find_by(id: params[:user_id])
