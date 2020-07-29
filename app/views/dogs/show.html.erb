@@ -2,25 +2,26 @@
 
     
     <h1><%=@dog.name.capitalize%>'s Information</h1>
-    
-        Breed: <%=@dog.breed%><br>
-        Age: <%=@dog.age%> years<br>
-        Weight: <%=@dog.weight%>lbs<br>
-        Gender: <%=@dog.gender%><br>
-        Spayed/Nuetered: <%=@dog.fixed%><br>
-        Birthday: <%=@dog.birthday%><br>
 
-    <%if can? :update, @dog%>
-     <%=link_to "Edit", edit_user_dog_path(current_user, @dog)%>
-    <%end%>
-    |
-    <%if can? :destroy, @dog%>
-     <%=link_to "Delete ", user_dog_path(current_user, @dog), method: 'delete'%>
-    <%end%>
+    <ul>
+        <li>Breed: <%=@dog.breed%></li><br>
+        <li>Age: <%=@dog.age%> years</li><br>
+        <li>Weight: <%=@dog.weight%>lbs</li><br>
+        <li>Gender: <%=@dog.gender%></li><br>
+        <li>Spayed/Nuetered: <%=@dog.fixed%></li><br>
+        <li>Birthday: <%=@dog.birthday%></li><br>
+    </ul>
 
-    <br>
+    <div id="show-links">   
+        <%if can? :update, @dog%>
+        <%=link_to "Edit", edit_user_dog_path(current_user, @dog)%>
+        <%end%>
+        
+        <%if can? :destroy, @dog%>
+        <%=link_to "Delete ", user_dog_path(current_user, @dog), method: 'delete'%>
+        <%end%>
 
-    <%if can? :create, @dog%><%=link_to "Create Journal Entry for #{@dog.name.capitalize}", new_user_dog_journal_entry_path(current_user, @dog)%><%end%><br>
-    
-    
+
+        <%if can? :create, @dog%><%=link_to "Create Journal Entry for #{@dog.name.capitalize}", new_user_dog_journal_entry_path(current_user, @dog)%><%end%>
+    </div>
 </div>

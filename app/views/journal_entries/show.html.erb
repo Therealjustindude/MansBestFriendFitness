@@ -35,9 +35,10 @@
    
 
 
+<div id="show-links">
+    <%if can? :update, @journal_entry%><%=link_to "Edit Journal Entry", edit_user_dog_journal_entry_path(@journal_entry.user_id, @journal_entry.dog_id, @journal_entry)%><%end%>
 
-<%if can? :update, @journal_entry%><%=link_to "Edit Journal Entry", edit_user_dog_journal_entry_path(@journal_entry.user_id, @journal_entry.dog_id, @journal_entry)%><%end%>|
-
- <%if can? :destroy, @journal_entry%><%=link_to "Delete ", user_dog_journal_entry_path(@journal_entry.user_id, @journal_entry.dog_id, @journal_entry), method: 'delete'%><%end%><br>
+    <%if can? :destroy, @journal_entry%><%=link_to "Delete ", user_dog_journal_entry_path(@journal_entry.user_id, @journal_entry.dog_id, @journal_entry), method: 'delete'%><%end%>
+</div>
     
 </div>
