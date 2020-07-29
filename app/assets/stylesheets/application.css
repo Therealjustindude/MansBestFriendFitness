@@ -14,4 +14,6 @@
  *= require 'devise'
  *= require 'home_page'
  *= require 'user_show'
+ *= require 'dog_show'
+ *= require 'journal_show'
  */
